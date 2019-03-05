@@ -1,0 +1,4 @@
+<resources>
+    <id name="navigation_content"/>
+    <integer name="navigationAnimationTime">300</integer>
+</resources>

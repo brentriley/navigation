@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Navigation</string>
+    <string name="java_title">Navigation (Java)</string>
+    <string name="navigation_title">Navigation (AndroidX)</string>
+    <string name="nested_title">Navigation (Nested)</string>
+
+    <string name="toast_kotlin">Kotlin Navigation Example</string>
+    <string name="toast_java">Java Navigation Example</string>
+    <string name="toast_navigation">AndroidX Navigation Example</string>
+    <string name="toast_nested">Nested Navigation Example</string>
+
+    <string name="example_present">Present Fragment</string>
+    <string name="example_present_bottom">Present Fragment from Bottom</string>
+    <string name="example_pop">Pop Backstack</string>
+
+    <string name="state_current">Current state is %1$d %2$s</string>
+    <string name="state_increment">Change State</string>
+
+    <string name="page_a">Page A</string>
+    <string name="page_b">Page B</string>
+    <string name="page_c">Page C</string>
+    <string name="page_swap">Language</string>
+
+    <string name="page_change">Navigated to Page with id %d</string>
+
+    <string name="backstack_count">There are %d Fragment(s) in the back stack</string>
+
+    <string name="backstack_empty">Back stack is empty!</string>
+
+</resources>

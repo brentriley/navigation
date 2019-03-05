@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="page_a" type="id"/>
+    <item name="page_b" type="id"/>
+    <item name="page_c" type="id"/>
+    <item name="page_swap" type="id"/>
+</resources>

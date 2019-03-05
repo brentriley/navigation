@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#29b6f6</color>
+    <color name="colorPrimaryDark">#0086c3</color>
+    <color name="colorAccent">#73e8ff</color>
+
+    <color name="background_0">#e3f2fd</color>
+    <color name="background_1">#fff8e1</color>
+    <color name="background_2">#efebe9</color>
+    <color name="background_3">#ffebee</color>
+
+
+    <color name="random_background_0">#ef9a9a</color>
+    <color name="random_background_1">#ce93d8</color>
+    <color name="random_background_2">#9fa8da</color>
+    <color name="random_background_3">#81d4fa</color>
+    <color name="random_background_4">#80cbc4</color>
+    <color name="random_background_5">#c5e1a5</color>
+    <color name="random_background_6">#ffcc80</color>
+    <color name="random_background_7">#ffab91</color>
+
+</resources>

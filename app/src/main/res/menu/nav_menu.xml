@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/page_a"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/page_a" />
+
+    <item
+        android:id="@id/page_b"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/page_b" />
+
+    <item
+        android:id="@id/page_c"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/page_c" />
+
+    <item
+        android:id="@id/page_swap"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/page_swap" />
+
+</menu>
