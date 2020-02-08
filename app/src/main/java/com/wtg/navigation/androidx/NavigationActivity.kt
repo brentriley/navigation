@@ -2,13 +2,13 @@ package com.wtg.navigation.androidx
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.brent.navigation.TabNavigation
 import com.brent.navigation.tabNavigation
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wtg.navigation.R
 import com.wtg.navigation.graph.GraphActivity
 import kotlinx.android.synthetic.main.activity_home.*

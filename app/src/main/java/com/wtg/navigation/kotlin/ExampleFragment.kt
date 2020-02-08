@@ -1,11 +1,11 @@
 package com.wtg.navigation.kotlin
 
 import android.os.Bundle
-import android.support.annotation.ColorRes
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorRes
+import androidx.fragment.app.Fragment
 import com.brent.navigation.pushFragment
 import com.wtg.navigation.R
 import kotlinx.android.synthetic.main.fragment_example.*

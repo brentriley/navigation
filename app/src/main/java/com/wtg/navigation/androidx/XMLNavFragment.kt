@@ -1,14 +1,14 @@
 package com.wtg.navigation.androidx
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.wtg.navigation.R
 import kotlinx.android.synthetic.main.fragment_example.*
-import java.util.Random
+import java.util.*
 
 class XMLNavFragment : Fragment() {
 
@@ -64,12 +64,12 @@ class XMLNavFragment : Fragment() {
 
     private fun onShowNextFragment() {
         disableButtons()
-        findNavController().navigate(R.id.navPushIn)
+        findNavController(this).navigate(R.id.navPushIn)
     }
 
     private fun onRaiseNextFragment() {
         disableButtons()
-        findNavController().navigate(R.id.navPushUp)
+        findNavController(this).navigate(R.id.navPushUp)
     }
 
     private fun popBackStack() {

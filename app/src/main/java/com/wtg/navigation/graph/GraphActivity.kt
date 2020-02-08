@@ -2,11 +2,11 @@ package com.wtg.navigation.graph
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.navigation.findNavController
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wtg.navigation.R
 import com.wtg.navigation.kotlin.MainActivity
 import kotlinx.android.synthetic.main.activity_host.*
@@ -28,7 +28,7 @@ class GraphActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItem
             startActivity(Intent(this, MainActivity::class.java))
             super.finish()
         } else {
-            findNavController(R.id.hostContent).navigate(menuItem.itemId)
+            findNavController(this, R.id.hostContent).navigate(menuItem.itemId)
         }
         return true
     }

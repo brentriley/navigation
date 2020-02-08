@@ -1,14 +1,14 @@
 package com.wtg.navigation.graph
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.wtg.navigation.R
 import kotlinx.android.synthetic.main.fragment_state.*
-import java.util.Random
+import java.util.*
 
 class StateCheckFragment: Fragment() {
 

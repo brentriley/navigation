@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/exampleDepth"
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -20,21 +20,21 @@
         android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/examplePresent"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/app_padding"
             android:text="@string/example_present" />
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/examplePresentUp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_size"
             android:layout_margin="@dimen/app_padding"
             android:text="@string/example_present_bottom" />
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/examplePop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_size"

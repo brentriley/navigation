@@ -1,11 +1,11 @@
 package com.brent.navigation
 
 import android.os.Bundle
-import android.support.annotation.IdRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import android.util.Log
 import android.util.SparseArray
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 
 internal class TabControlFragment : Fragment(), TabNavigation {
 

@@ -1,10 +1,10 @@
 package com.brent.navigation
 
-import android.support.annotation.AnimRes
-import android.support.annotation.AnimatorRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.util.Log
+import androidx.annotation.AnimRes
+import androidx.annotation.AnimatorRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.brent.navigation.Navigation.pushFragment
 
 /**
@@ -31,6 +31,7 @@ fun Fragment.pushFragment(fragment: Fragment) {
  * @param popExitRes: Animation or Animator XML resource file used to define [fragment]'s exit
  * behaviour when [FragmentManager.popBackStack] is called
  */
+@Suppress("DEPRECATION")
 fun Fragment.pushFragment(fragment: Fragment, @AnimRes @AnimatorRes enterRes: Int, @AnimRes @AnimatorRes popExitRes: Int) {
     val fragmentManager = fragmentManager ?: return
 

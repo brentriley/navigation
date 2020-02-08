@@ -13,7 +13,7 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/tab_graph" />
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/hostNavBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_size"

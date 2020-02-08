@@ -1,10 +1,10 @@
 package com.brent.navigation
 
-import android.support.annotation.AnimRes
-import android.support.annotation.AnimatorRes
-import android.support.annotation.IdRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
+import androidx.annotation.AnimRes
+import androidx.annotation.AnimatorRes
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.brent.navigation.TabNavigation.Listener
 
 /**
@@ -55,7 +55,10 @@ interface TabNavigation {
         fun onAttemptToNavigateToPage(nextPage: Int): Int?
     }
 
-    class AnimSet(internal var enterRes: Int, internal var exitRes: Int) {
+    class AnimSet(
+        var enterRes: Int,
+        var exitRes: Int
+    ) {
         fun setCustomAnimations(@AnimatorRes @AnimRes enterRes: Int, @AnimatorRes @AnimRes exitRes: Int) {
             this.enterRes = enterRes
             this.exitRes = exitRes
