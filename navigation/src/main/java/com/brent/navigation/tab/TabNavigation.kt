@@ -1,11 +1,11 @@
-package com.brent.navigation
+package com.brent.navigation.tab
 
 import androidx.annotation.AnimRes
 import androidx.annotation.AnimatorRes
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.brent.navigation.TabNavigation.Listener
+import com.brent.navigation.tab.TabNavigation.Listener
 
 /**
  * Utility to provide simple and effective Tab Navigation behaviour using [Fragment]s

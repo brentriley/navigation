@@ -5,7 +5,12 @@ import androidx.annotation.AnimRes
 import androidx.annotation.AnimatorRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.brent.navigation.Navigation.pushFragment
+import com.brent.navigation.tab.TabControlFragment
+import com.brent.navigation.tab.TabNavigation
 
 /**
  * Extension for [Fragment] classes that provide an easy and reliable means of pushing to the Nav Stack.
@@ -36,10 +41,39 @@ fun Fragment.pushFragment(fragment: Fragment, @AnimRes @AnimatorRes enterRes: In
     val fragmentManager = fragmentManager ?: return
 
     fragmentManager.beginTransaction()
-            .setCustomAnimations(enterRes, R.animator.fragment_pop_out, R.animator.fragment_pop_in, popExitRes)
-            .replace(id, fragment)
-            .addToBackStack("frag_${fragmentManager.backStackEntryCount}")
-            .commit()
+        .setCustomAnimations(enterRes, R.animator.fragment_pop_out, R.animator.fragment_pop_in, popExitRes)
+        .replace(id, fragment)
+        .addToBackStack("frag_${fragmentManager.backStackEntryCount}")
+        .commit()
+}
+
+@Suppress("DEPRECATION")
+fun Fragment.slideFragment(fragment: Fragment) {
+    val fragmentManager = fragmentManager ?: return
+
+    fragmentManager.beginTransaction()
+        .setCustomAnimations(R.anim.fragment_from_right, R.anim.fragment_to_left, R.anim.fragment_from_left, R.anim.fragment_to_right)
+        .replace(id, fragment)
+        .addToBackStack("frag_${fragmentManager.backStackEntryCount}")
+        .commit()
+}
+
+@Suppress("DEPRECATION")
+fun Fragment.clearBackStack() {
+    fragmentManager?.let { stack ->
+        clearBackStack(stack)
+    }
+}
+
+fun FragmentActivity.clearBackStack() = clearBackStack(supportFragmentManager)
+
+private fun clearBackStack(stack: FragmentManager) {
+    if(stack.backStackEntryCount > 0) {
+        stack.popBackStack(
+            stack.getBackStackEntryAt(0).name,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
+    }
 }
 
 /**
@@ -62,13 +96,28 @@ val Fragment.tabNavigation: TabNavigation?
 val FragmentActivity.tabNavigation: TabNavigation
     get() = supportFragmentManager.fragments.firstOrNull { fragment ->
         fragment is TabControlFragment
-    } as? TabControlFragment ?: TabControlFragment().also { controller ->
+    } as? TabControlFragment
+        ?: TabControlFragment().also { controller ->
 
         Log.i("Navigation", "Building Navigation Controller")
         supportFragmentManager.beginTransaction().apply {
             add(controller, "navigationController")
         }.commitNow()
     }
+
+val Fragment.navController get() = findNavController(this)
+
+val FragmentActivity.navController: NavController get() {
+    for(fragment in supportFragmentManager.fragments) {
+        try {
+            return findNavController(fragment)
+        } catch (e: IllegalStateException) {
+            //Skip
+        }
+    }
+
+    throw IllegalStateException("FragmentActivity $this does not have a NavController")
+}
 
 /**
  * Simple Util / Alias setup that provides Java static methods for clarity and ease of use for projects
@@ -122,4 +171,13 @@ object Navigation {
      */
     @JvmStatic
     fun pushFragment(currentFragment: Fragment, nextFragment: Fragment, @AnimRes @AnimatorRes enterRes: Int, @AnimRes @AnimatorRes popExitRes: Int) = currentFragment.pushFragment(nextFragment, enterRes, popExitRes)
+
+    @JvmStatic
+    fun slideFragment(currentFragment: Fragment, nextFragment: Fragment) = currentFragment.slideFragment(nextFragment)
+
+    @JvmStatic
+    fun clearBackStack(currentFragment: Fragment) = currentFragment.clearBackStack()
+
+    @JvmStatic
+    fun clearBackStack(activity: FragmentActivity) = activity.clearBackStack()
 }

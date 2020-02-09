@@ -1,4 +1,4 @@
-package com.brent.navigation
+package com.brent.navigation.tab
 
 import android.os.Bundle
 import android.util.Log
@@ -6,10 +6,13 @@ import android.util.SparseArray
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.brent.navigation.R
 
-internal class TabControlFragment : Fragment(), TabNavigation {
+internal class TabControlFragment : Fragment(),
+    TabNavigation {
 
-    private val transitionAnimations = TabNavigation.AnimSet(0, 0)
+    private val transitionAnimations =
+        TabNavigation.AnimSet(0, 0)
 
     private var loggingEnabled = false
     private var useCommitNow = false
@@ -193,8 +196,8 @@ internal class TabControlFragment : Fragment(), TabNavigation {
         hostFragment.setInitialSavedState(savedStates[nextPage])
 
         transitionAnimations.setCustomAnimations(
-                R.anim.fragment_fade_in,
-                R.anim.fragment_fade_out
+            R.anim.fragment_fade_in,
+            R.anim.fragment_fade_out
         )
 
         changeListeners.forEach {
