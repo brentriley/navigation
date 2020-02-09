@@ -1,0 +1,58 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/standard_fragment"
+    android:id="@+id/child_base"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/standard_fragment"
+        android:name="com.wtg.navigation.androidx.XMLNavFragment">
+
+        <action
+            android:id="@+id/navPushIn"
+            app:destination="@id/standard_fragment"
+            app:enterAnim="@anim/fragment_from_right"
+            app:exitAnim="@animator/fragment_pop_out"
+            app:popEnterAnim="@animator/fragment_pop_in"
+            app:popExitAnim="@anim/fragment_to_right" />
+
+        <action
+            android:id="@+id/navPushUp"
+            app:destination="@id/standard_fragment"
+            app:enterAnim="@anim/fragment_up"
+            app:exitAnim="@animator/fragment_pop_out"
+            app:popEnterAnim="@animator/fragment_pop_in"
+            app:popExitAnim="@anim/fragment_down" />
+
+        <action
+            android:id="@+id/navPushInClearStack"
+            app:destination="@id/standard_fragment"
+            app:enterAnim="@anim/fragment_from_right"
+            app:exitAnim="@animator/fragment_pop_out"
+            app:popEnterAnim="@animator/fragment_pop_in"
+            app:popExitAnim="@animator/fragment_pop_out"
+            app:popUpTo="@id/child_base"
+            app:popUpToInclusive="true"/>
+
+        <action
+            android:id="@+id/navSlideIn"
+            app:destination="@id/standard_fragment"
+            app:enterAnim="@anim/fragment_from_right"
+            app:exitAnim="@anim/fragment_to_left"
+            app:popEnterAnim="@anim/fragment_from_left"
+            app:popExitAnim="@anim/fragment_to_right" />
+
+        <action
+            android:id="@+id/navSlideInClearStack"
+            app:destination="@id/standard_fragment"
+            app:enterAnim="@anim/fragment_from_right"
+            app:exitAnim="@anim/fragment_to_left"
+            app:popExitAnim="@anim/fragment_to_left"
+            app:popUpTo="@id/child_base"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+
+</navigation>

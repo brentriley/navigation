@@ -10,6 +10,9 @@
     <string name="toast_nested">Nested Navigation Example</string>
 
     <string name="example_present">Present Fragment</string>
+    <string name="example_present_clear">Present No Backstack</string>
+    <string name="example_slide">Slide In</string>
+    <string name="example_slide_clear">Slide No Backstack</string>
     <string name="example_present_bottom">Present Fragment from Bottom</string>
     <string name="example_pop">Pop Backstack</string>
 

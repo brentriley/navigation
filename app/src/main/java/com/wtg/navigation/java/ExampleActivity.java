@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.brent.navigation.TabNavigation;
+import com.brent.navigation.tab.TabNavigation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.wtg.navigation.R;
 import com.wtg.navigation.androidx.NavigationActivity;
@@ -64,10 +64,5 @@ public class ExampleActivity extends AppCompatActivity implements TabNavigation.
     @Override
     public void onCurrentPageReselected(int currentPage) {
         tabNavigation.resetCurrentPage();
-    }
-
-    @Override
-    public void finish() {
-        Toast.makeText(this, getString(R.string.backstack_empty), Toast.LENGTH_SHORT).show();
     }
 }

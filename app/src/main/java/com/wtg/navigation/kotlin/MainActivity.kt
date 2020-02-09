@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.brent.navigation.TabNavigation
+import com.brent.navigation.tab.TabNavigation
 import com.brent.navigation.tabNavigation
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.wtg.navigation.R
@@ -52,11 +52,7 @@ class MainActivity : AppCompatActivity(), TabNavigation.OnPageChangedListener, T
         tabNavigation.resetCurrentPage()
     }
 
-    override fun finish() {
-        Toast.makeText(this, getString(R.string.backstack_empty), Toast.LENGTH_SHORT).show()
-    }
-
     override fun onOverrideTabAnimation(animations: TabNavigation.AnimSet) {
-        animations.enterRes = 1
+
     }
 }

@@ -3,22 +3,22 @@
 
     <item
         android:id="@id/page_a"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/page_a" />
 
     <item
         android:id="@id/page_b"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_access_alarm_black_24dp"
         android:title="@string/page_b" />
 
     <item
         android:id="@id/page_c"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_camera_black_24dp"
         android:title="@string/page_c" />
 
     <item
         android:id="@id/page_swap"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_skip_next_black_24dp"
         android:title="@string/page_swap" />
 
 </menu>

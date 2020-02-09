@@ -13,6 +13,11 @@
 
     </navigation>
 
+    <include
+        android:id="@+id/page_f"
+        app:graph="@navigation/child_graph"
+        />
+
     <navigation
         android:id="@+id/page_b"
         app:startDestination="@id/page_b_child">

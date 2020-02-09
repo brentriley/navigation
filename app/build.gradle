@@ -13,7 +13,34 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        alias {
+            storeFile file("keystore")
+            keyAlias 'key'
+            storePassword 'password'
+            keyPassword 'password'
+        }
+    }
+
+    flavorDimensions 'base'
+
+    productFlavors {
+        dev {
+            dimension 'base'
+        }
+
+        example {
+            dimension 'base'
+            signingConfig = android.signingConfigs.alias
+        }
+    }
+
     buildTypes {
+        debug {
+
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

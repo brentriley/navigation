@@ -1,11 +1,13 @@
 package com.wtg.navigation.androidx
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.brent.navigation.support.navigate
+import com.brent.navigation.support.pushIn
 import com.wtg.navigation.R
 import kotlinx.android.synthetic.main.fragment_example.*
 import java.util.*
@@ -47,6 +49,18 @@ class XMLNavFragment : Fragment() {
             onRaiseNextFragment()
         }
 
+        examplePresentClearStack.setOnClickListener {
+            onShowNextFragmentAndClear()
+        }
+
+        exampleSlide.setOnClickListener {
+            onSlideNextFragment()
+        }
+
+        exampleSlideClearStack.setOnClickListener {
+            onSlideNextFragmentAndClear()
+        }
+
         if(backStackCount == 0) {
             examplePop.visibility = View.GONE
         } else {
@@ -59,22 +73,43 @@ class XMLNavFragment : Fragment() {
     private fun disableButtons() {
         examplePresent.isEnabled = false
         examplePresentUp.isEnabled = false
+        examplePresentClearStack.isEnabled = false
+        exampleSlide.isEnabled = false
+        exampleSlideClearStack.isEnabled = false
         examplePop.isEnabled = false
     }
 
     private fun onShowNextFragment() {
         disableButtons()
-        findNavController(this).navigate(R.id.navPushIn)
+        navigate(R.id.navPushIn)
     }
 
     private fun onRaiseNextFragment() {
         disableButtons()
-        findNavController(this).navigate(R.id.navPushUp)
+        navigate(R.id.navPushUp)
     }
+
+    private fun onShowNextFragmentAndClear() {
+        disableButtons()
+        navigate(R.id.navPushInClearStack)
+    }
+
+    private fun onSlideNextFragment() {
+        disableButtons()
+        Handler().postDelayed({
+            navigate(R.id.navSlideIn, pushIn())
+        }, 3000)
+    }
+
+    private fun onSlideNextFragmentAndClear() {
+        disableButtons()
+        navigate(R.id.navSlideInClearStack)
+    }
+
 
     private fun popBackStack() {
         disableButtons()
-        fragmentManager?.popBackStack()
+        activity?.onBackPressed()
     }
 
 }

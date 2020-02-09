@@ -71,6 +71,28 @@ public class ExampleFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.examplePresentClearStack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onShowNextFragmentAndClear();
+            }
+        });
+
+        view.findViewById(R.id.exampleSlide).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSlideNextFragment();
+            }
+        });
+
+        view.findViewById(R.id.exampleSlideClearStack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSlideNextFragmentAndClear();
+            }
+        });
+
+
         View popButton = view.findViewById(R.id.examplePop);
         if (backStackCount == 0) {
             popButton.setVisibility(View.GONE);
@@ -85,27 +107,47 @@ public class ExampleFragment extends Fragment {
     }
 
     private void disableButtons() {
-        if(getView() != null) {
-            getView().findViewById(R.id.examplePresent).setEnabled(false);
-            getView().findViewById(R.id.examplePresentUp).setEnabled(false);
-            getView().findViewById(R.id.examplePop).setEnabled(false);
+        View view = getView();
+        if(view != null) {
+            view.findViewById(R.id.examplePresent).setEnabled(false);
+            view.findViewById(R.id.examplePresentUp).setEnabled(false);
+            view.findViewById(R.id.examplePresentClearStack).setEnabled(false);
+            view.findViewById(R.id.examplePop).setEnabled(false);
+            view.findViewById(R.id.exampleSlide).setEnabled(false);
+            view.findViewById(R.id.exampleSlideClearStack).setEnabled(false);
         }
     }
 
     private void onShowNextFragment() {
         disableButtons();
-        Navigation.pushFragment(this, ExampleFragment.newInstance());
+        Navigation.pushFragment(this, newInstance());
+    }
+
+    private void onShowNextFragmentAndClear() {
+        disableButtons();
+        Navigation.clearBackStack(this);
+        Navigation.pushFragment(this, newInstance());
     }
 
     private void onRaiseNextFragment() {
         disableButtons();
-        Navigation.pushFragment(this, ExampleFragment.newInstance(), R.anim.fragment_up, R.anim.fragment_down);
+        Navigation.pushFragment(this, newInstance(), R.anim.fragment_up, R.anim.fragment_down);
+    }
+
+    private void onSlideNextFragment() {
+        disableButtons();
+        Navigation.slideFragment(this, newInstance());
+    }
+
+    private void onSlideNextFragmentAndClear() {
+        disableButtons();
+        Navigation.clearBackStack(this);
+        Navigation.slideFragment(this, newInstance());
     }
 
     private void popBackStack() {
-        disableButtons();
-        if (getFragmentManager() != null) {
-            getFragmentManager().popBackStack();
+        if(getActivity() != null) {
+            getActivity().onBackPressed();
         }
     }
 }

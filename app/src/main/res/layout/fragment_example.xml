@@ -35,6 +35,27 @@
             android:text="@string/example_present_bottom" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/examplePresentClearStack"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/app_padding"
+            android:text="@string/example_present_clear"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/exampleSlide"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/app_padding"
+            android:text="@string/example_slide"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/exampleSlideClearStack"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:layout_margin="@dimen/app_padding"
+            android:text="@string/example_slide_clear"/>
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/examplePop"
             android:layout_width="match_parent"
             android:layout_height="@dimen/button_size"

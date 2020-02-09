@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.ColorRes
 import androidx.fragment.app.Fragment
+import com.brent.navigation.clearBackStack
 import com.brent.navigation.pushFragment
+import com.brent.navigation.slideFragment
 import com.wtg.navigation.R
 import kotlinx.android.synthetic.main.fragment_example.*
-import java.util.Random
+import java.util.*
 
 class ExampleFragment : Fragment() {
 
@@ -45,6 +47,18 @@ class ExampleFragment : Fragment() {
             onRaiseNextFragment()
         }
 
+        examplePresentClearStack.setOnClickListener {
+            onShowNextFragmentAndClear()
+        }
+
+        exampleSlide.setOnClickListener {
+            onSlideNextFragment()
+        }
+
+        exampleSlideClearStack.setOnClickListener {
+            onSlideNextFragmentAndClear()
+        }
+
         if(backStackCount == 0) {
             examplePop.visibility = View.GONE
         } else {
@@ -57,17 +71,37 @@ class ExampleFragment : Fragment() {
     private fun disableButtons() {
         examplePresent.isEnabled = false
         examplePresentUp.isEnabled = false
+        examplePresentClearStack.isEnabled = false
+        exampleSlide.isEnabled = false
+        exampleSlideClearStack.isEnabled = false
         examplePop.isEnabled = false
     }
 
     private fun onShowNextFragment() {
         disableButtons()
-        pushFragment(ExampleFragment.newInstance())
+        pushFragment(newInstance())
     }
 
     private fun onRaiseNextFragment() {
         disableButtons()
-        pushFragment(ExampleFragment.newInstance(), R.anim.fragment_up, R.anim.fragment_down)
+        pushFragment(newInstance(), R.anim.fragment_up, R.anim.fragment_down)
+    }
+
+    private fun onSlideNextFragment() {
+        disableButtons()
+        slideFragment(newInstance())
+    }
+
+    private fun onSlideNextFragmentAndClear() {
+        disableButtons()
+        clearBackStack()
+        slideFragment(newInstance())
+    }
+
+    private fun onShowNextFragmentAndClear() {
+        disableButtons()
+        clearBackStack()
+        pushFragment(newInstance())
     }
 
     private fun popBackStack() {
