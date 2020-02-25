@@ -123,6 +123,7 @@ val FragmentActivity.navController: NavController get() {
  * Simple Util / Alias setup that provides Java static methods for clarity and ease of use for projects
  * not written in Kotlin.
  */
+
 object Navigation {
 
     /**

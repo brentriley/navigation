@@ -58,19 +58,6 @@ class PendingDirections @JvmOverloads constructor(
 
     companion object {
 
-        private fun NavOptions.Builder.setBundle(bundle: Bundle?) = bundle?.let { options ->
-            setEnterAnim(options.getInt(KEY_NAV_ENTER_RES, -1))
-            setExitAnim(options.getInt(KEY_NAV_EXIT_RES, -1))
-            setPopEnterAnim(options.getInt(KEY_NAV_POP_ENTER_RES, -1))
-            setPopExitAnim(options.getInt(KEY_NAV_POP_EXIT_RES, -1))
-            setLaunchSingleTop(options.getBoolean(KEY_NAV_SINGLE_TOP, false))
-            setPopUpTo(
-                options.getInt(KEY_NAV_POP_TO, -1),
-                options.getBoolean(KEY_NAV_POP_INCLUSIVE, false)
-            )
-        } ?: this
-
-
         fun fromBundle(bundle: Bundle?) = bundle
             ?.takeIf { it.getInt(KEY_NAV_ACTION_ID, -1) > 0 }
             ?.let { directionBundle ->
@@ -86,5 +73,17 @@ class PendingDirections @JvmOverloads constructor(
                     }
                 )
             }
+
+        private fun NavOptions.Builder.setBundle(bundle: Bundle?) = bundle?.let { options ->
+            setEnterAnim(options.getInt(KEY_NAV_ENTER_RES, -1))
+            setExitAnim(options.getInt(KEY_NAV_EXIT_RES, -1))
+            setPopEnterAnim(options.getInt(KEY_NAV_POP_ENTER_RES, -1))
+            setPopExitAnim(options.getInt(KEY_NAV_POP_EXIT_RES, -1))
+            setLaunchSingleTop(options.getBoolean(KEY_NAV_SINGLE_TOP, false))
+            setPopUpTo(
+                options.getInt(KEY_NAV_POP_TO, -1),
+                options.getBoolean(KEY_NAV_POP_INCLUSIVE, false)
+            )
+        } ?: this
     }
 }
